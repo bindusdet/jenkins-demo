@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jenkins-app
+  template:
+    metadata:
+      labels:
+        app: jenkins-app
+    spec:
+      containers:
+      - name: app
+        image: 826828992763.dkr.ecr.us-west-2.amazonaws.com/jenkins-demo:1
+        ports:
+        - containerPort: 3000
